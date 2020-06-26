@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 
 
 class MovieItem extends Component {
+    state = {
+        toggle: false,
+    }
+
+    toggle = () => {
+        this.setState({
+                toggle: !this.state.toggle,
+        });
+    } 
     // Renders the entire app on the DOM
     render() {
         return (
@@ -11,9 +20,9 @@ class MovieItem extends Component {
             //     We made it here!
             // </div>
                 <li>
-                    <span><img src={this.props.movie.poster}></img></span>
+                    <span><img onClick={this.toggle} src={this.props.movie.poster}></img></span>
                 <span>{this.props.movie.title}</span>
-                <span>{this.props.movie.description}</span>
+                {this.state.toggle === false ? "Click movie poster for more details" : <span>{this.props.movie.description}</span>} 
                 </li>
              
         );
