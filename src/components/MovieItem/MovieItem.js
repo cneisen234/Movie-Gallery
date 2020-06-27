@@ -112,40 +112,40 @@ class MovieItem extends Component {
           {this.state.toggle === false ? (
             <span></span>
           ) : (
-              <div className="wrapper">
-                  <img
+            <div className="wrapper">
+              <img
                 src={this.props.movie.poster}
                 alt={this.props.movie.title}
                 className="descriptionImage"
               ></img>
-            <Paper
-              style={{ borderRadius: "10%", height: "700px", width: "600px" }}
-              elevation="24"
-              className="movieBox"
-            >
-              <div>
+              <Paper
+                style={{ borderRadius: "10%", height: "700px", width: "600px" }}
+                elevation="24"
+                className="movieBox"
+              >
+                <div>
                   <p className="movieTitle">{this.props.movie.title}</p>
-                <div className="textBox">
-                  <p>{this.props.movie.description}</p>
+                  <div className="textBox">
+                    <p>{this.props.movie.description}</p>
+                  </div>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className="button"
+                    onClick={this.navToHome}
+                  >
+                    Back To List
+                  </Button>
+                  <Button
+                    onClick={this.navToEdit}
+                    variant="contained"
+                    color="primary"
+                    className="button"
+                  >
+                    Edit
+                  </Button>
                 </div>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="button"
-                  onClick={this.navToHome}
-                >
-                  Back To List
-                </Button>
-                <Button
-                  onClick={this.navToEdit}
-                  variant="contained"
-                  color="primary"
-                  className="button"
-                >
-                  Edit
-                </Button>
-              </div>
-            </Paper>
+              </Paper>
             </div>
           )}
         </Route>
@@ -158,6 +158,7 @@ class MovieItem extends Component {
               elevation="24"
               className="movieBox"
             >
+                <p>Please edit the title and description below</p>
               <form onSubmit={this.editMovie}>
                 <TextField
                   variant="outlined"
@@ -186,7 +187,7 @@ class MovieItem extends Component {
                   //runs handleChange on input change
                   onChange={(event) => this.handleChange(event, "description")}
                 />
-                <br />
+                <br /> <br /> <br /><br />
                 {/* button to submit comments */}
                 <Button
                   className="button"
