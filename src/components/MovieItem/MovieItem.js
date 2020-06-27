@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import './App.css';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, Typography } from "react-router-dom";
 import swal from "sweetalert";
 import axios from "axios";
 import { TextField, Button, Paper } from "@material-ui/core";
@@ -88,33 +88,64 @@ class MovieItem extends Component {
       // <div className="App">
       //     We made it here!
       // </div>
-      <div>
+      <div className="paperContainer">
         <Route exact path="/">
-          <span>
-            <img
-              onClick={this.navToDetails}
-              src={this.props.movie.poster}
-              alt={this.props.movie.title}
-            ></img>
-          </span>
-          <span>{this.props.movie.title}</span>
+          <Paper
+            style={{ borderRadius: "10%", height: "400px", width: "300px" }}
+            elevation="24"
+            className="movieBox"
+          >
+            <span>
+              <img
+                onClick={this.navToDetails}
+                src={this.props.movie.poster}
+                alt={this.props.movie.title}
+              ></img>
+            </span>
+            <br />
+            <div>
+              <p>{this.props.movie.title}</p>
+            </div>
+          </Paper>
         </Route>
         <Route exact path="/details">
           {this.state.toggle === false ? (
             <span></span>
           ) : (
-            <div>
-              <span>{this.props.movie.description}</span>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.navToHome}
-              >
-                Back To List
-              </Button>
-                <Button onClick={this.navToEdit} variant="contained" color="primary">
+              <div className="wrapper">
+                  <img
+                src={this.props.movie.poster}
+                alt={this.props.movie.title}
+                className="descriptionImage"
+              ></img>
+            <Paper
+              style={{ borderRadius: "10%", height: "700px", width: "600px" }}
+              elevation="24"
+              className="movieBox"
+            >
+              <div>
+                  <p className="movieTitle">{this.props.movie.title}</p>
+                <div className="textBox">
+                  <p>{this.props.movie.description}</p>
+                </div>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className="button"
+                  onClick={this.navToHome}
+                >
+                  Back To List
+                </Button>
+                <Button
+                  onClick={this.navToEdit}
+                  variant="contained"
+                  color="primary"
+                  className="button"
+                >
                   Edit
                 </Button>
+              </div>
+            </Paper>
             </div>
           )}
         </Route>
@@ -122,45 +153,51 @@ class MovieItem extends Component {
           {this.state.toggle === false ? (
             <span></span>
           ) : (
-            <form onSubmit={this.editMovie}>
-              <TextField
-                variant="outlined"
-                label="Title"
-                name="edit"
-                placeholder="Edit Movie Title"
-                // value of local state as text value
-                value={this.state.title}
-                type="text"
-                maxLength={1000}
-                //runs handleChange on input change
-                onChange={(event) => this.handleChange(event, "title")}
-              />
-              <TextField
-                multiline
-                rows={4}
-                rowsMax={8}
-                variant="outlined"
-                label="Description"
-                name="edit"
-                placeholder="Edit Movie Description"
-                // value of local state as text value
-                value={this.state.description}
-                type="text"
-                maxLength={10000}
-                //runs handleChange on input change
-                onChange={(event) => this.handleChange(event, "description")}
-              />
-              <br />
-              {/* button to submit comments */}
-              <Button
-                className="editButton"
-                variant="contained"
-                color="primary"
-                type="submit"
-              >
-                Done Editing
-              </Button>{" "}
-            </form>
+            <Paper
+              style={{ borderRadius: "10%", height: "500px", width: "500px" }}
+              elevation="24"
+              className="movieBox"
+            >
+              <form onSubmit={this.editMovie}>
+                <TextField
+                  variant="outlined"
+                  label="Title"
+                  name="edit"
+                  placeholder="Edit Movie Title"
+                  // value of local state as text value
+                  value={this.state.title}
+                  type="text"
+                  maxLength={1000}
+                  //runs handleChange on input change
+                  onChange={(event) => this.handleChange(event, "title")}
+                />
+                <TextField
+                  multiline
+                  rows={4}
+                  rowsMax={8}
+                  variant="outlined"
+                  label="Description"
+                  name="edit"
+                  placeholder="Edit Movie Description"
+                  // value of local state as text value
+                  value={this.state.description}
+                  type="text"
+                  maxLength={10000}
+                  //runs handleChange on input change
+                  onChange={(event) => this.handleChange(event, "description")}
+                />
+                <br />
+                {/* button to submit comments */}
+                <Button
+                  className="button"
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                >
+                  Done Editing
+                </Button>{" "}
+              </form>
+            </Paper>
           )}
         </Route>
       </div>
