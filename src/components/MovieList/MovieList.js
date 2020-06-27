@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MovieItem from '../MovieItem/MovieItem'
 import { connect } from "react-redux";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import Header from "../Header/Header";
 
 class MovieList extends Component {
     componentDidMount() {
@@ -11,13 +12,17 @@ class MovieList extends Component {
     // Renders the entire app on the DOM
     render() {
         return (
-            <Router>
+          <Router>
+            <Route exact path="/">
+              <Header />
+            </Route>
+            <br /> <br /> <br />
             <div>
-                {this.props.reduxState.movies.map((movie) => {
-                    return <MovieItem key={movie.id} movie={movie} />;
-                })}
+              {this.props.reduxState.movies.map((movie) => {
+                return <MovieItem key={movie.id} movie={movie} />;
+              })}
             </div>
-            </Router>
+          </Router>
         );
     }
 }

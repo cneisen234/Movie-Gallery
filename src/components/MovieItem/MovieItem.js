@@ -7,6 +7,7 @@ import axios from "axios";
 import { TextField, Button, Paper } from "@material-ui/core";
 import { withRouter } from "react-router";
 
+
 class MovieItem extends Component {
   state = {
     toggle: false,
@@ -88,6 +89,7 @@ class MovieItem extends Component {
       // <div className="App">
       //     We made it here!
       // </div>
+
       <div className="paperContainer">
         <Route exact path="/">
           <Paper
@@ -112,7 +114,7 @@ class MovieItem extends Component {
           {this.state.toggle === false ? (
             <span></span>
           ) : (
-            <div className="wrapper">
+            <div className="animate">
               <img
                 src={this.props.movie.poster}
                 alt={this.props.movie.title}
@@ -153,12 +155,13 @@ class MovieItem extends Component {
           {this.state.toggle === false ? (
             <span></span>
           ) : (
+               <div className="animate">
             <Paper
               style={{ borderRadius: "10%", height: "500px", width: "500px" }}
               elevation="24"
               className="movieBox"
             >
-                <p>Please edit the title and description below</p>
+              <p>Please edit the title and description below</p>
               <form onSubmit={this.editMovie}>
                 <TextField
                   variant="outlined"
@@ -187,7 +190,8 @@ class MovieItem extends Component {
                   //runs handleChange on input change
                   onChange={(event) => this.handleChange(event, "description")}
                 />
-                <br /> <br /> <br /><br />
+                <br /> <br /> <br />
+                <br />
                 {/* button to submit comments */}
                 <Button
                   className="button"
@@ -199,6 +203,7 @@ class MovieItem extends Component {
                 </Button>{" "}
               </form>
             </Paper>
+            </div>
           )}
         </Route>
       </div>
