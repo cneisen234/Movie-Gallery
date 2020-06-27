@@ -69,3 +69,15 @@ animation-iteration-count: 1;
     animation-timing-function: ease-out;
   }
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.918);
+  color: white;
+  text-align: center;
+  height: 4%;
+}
