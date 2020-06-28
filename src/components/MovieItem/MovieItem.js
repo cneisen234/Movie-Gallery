@@ -261,6 +261,15 @@ class MovieItem extends Component {
                   </Button>{" "}
                 </form>
                 {/* end form */}
+                  {/* button runs navToHome */}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className="button"
+                    onClick={this.navToHome}
+                  >
+                    Back To List
+                  </Button>
               </Paper>
             </div>
             // end edit
