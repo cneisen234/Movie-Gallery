@@ -267,8 +267,8 @@ class MovieItem extends Component {
           )}
         </Route>
       </div>
-    );
-  } //end return
+    );//end return
+  } //end render
 } //end MovieItem
 
 export default withRouter(connect()(MovieItem));
