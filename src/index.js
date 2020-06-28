@@ -12,6 +12,7 @@ import createSagaMiddleware from 'redux-saga';
 import Axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
+//takes dataquery from database and stores it in fetchMovies function
 function* fetchMovies() {
 
     try {
@@ -24,6 +25,7 @@ function* fetchMovies() {
 
 // Create the rootSaga generator function
 function* rootSaga() {
+    //fetchMovies goes to FETCH_MOVIES
     yield takeEvery('FETCH_MOVIES', fetchMovies);
 }
 
@@ -40,21 +42,10 @@ const movies = (state = [], action) => {
     }
 }
 
-// Used to store the movie genres
-const genres = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_GENRES':
-            return action.payload;
-        default:
-            return state;
-    }
-}
-
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
-        genres,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
@@ -62,7 +53,7 @@ const storeInstance = createStore(
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
-
+//renders entire App to html file via id of root
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
     document.getElementById('root'));
 registerServiceWorker();
