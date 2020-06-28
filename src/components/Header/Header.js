@@ -12,6 +12,11 @@ class Header extends Component {
 
 
   render() {
+     setInterval(() => {
+        this.randomNum();
+       this.forceUpdate();
+        }, 25000);
+    
         
       let newNum = this.randomNum()
     return (

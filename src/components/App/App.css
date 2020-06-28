@@ -71,8 +71,8 @@ padding: 20px;
 
 .photoGallery {
   animation-name: enter;
-animation-duration: 3s;
-animation-iteration-count: 1;
+animation-duration: 25s;
+animation-iteration-count: infinite;
 }
 
 .animate {
@@ -86,7 +86,7 @@ animation-iteration-count: 1;
   0% {
     transform: translate3d(2000px, 0px, 0px);
   }
-  100% {
+  10% {
     transform: translate3d(0px, 0px, 0px);
     animation-timing-function: ease-out;
   }
