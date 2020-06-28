@@ -71,12 +71,12 @@ padding: 20px;
 
 .photoGallery {
   animation-name: enter;
-animation-duration: 25s;
+animation-duration: 20s;
 animation-iteration-count: infinite;
 }
 
 .animate {
-    animation-name: enter;
+    animation-name: enterDetails;
 animation-duration: 1s;
 animation-iteration-count: 1;
 }
@@ -86,9 +86,26 @@ animation-iteration-count: 1;
   0% {
     transform: translate3d(2000px, 0px, 0px);
   }
-  10% {
+  15% {
     transform: translate3d(0px, 0px, 0px);
     animation-timing-function: ease-out;
+  }
+   85% {
+    transform: translate3d(0px, 0px, 0px);
+    animation-timing-function: ease-in;
+  }
+    100% {
+    transform: translate3d(-2000px, 0px, 0px);
+  }
+}
+
+@keyframes enterDetails {
+  /*enters from right side and ends in middle of page*/
+  0% {
+    transform: translate3d(2000px, 0px, 0px);
+  }
+    100% {
+    transform: translate3d(0px, 0px, 0px);
   }
 }
 
