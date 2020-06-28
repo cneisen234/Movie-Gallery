@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 
 // Header is a controlled component that renders the header of the site
 class Header extends Component {
-    state = {
-        placeholder: ""
-    }
     randomNum = () => {
   let newNum = Math.floor(Math.random() * this.props.reduxState.movies.length);
   return newNum;
@@ -15,10 +12,7 @@ class Header extends Component {
 
 
   render() {
-      {setInterval(() => {
-       this.randomNum();
-       window.location.reload();
-       }, 15000);}
+        
       let newNum = this.randomNum()
     return (
       <div className="App">
@@ -27,7 +21,11 @@ class Header extends Component {
           <h1 className="App-title">Now Showing:</h1>
           <div className="photoGallery">
             {this.props.reduxState.movies.map((movie) => {
-              return (this.props.reduxState.movies.indexOf(movie) === newNum) ? <img src={movie.poster}></img> : <span></span>
+              return this.props.reduxState.movies.indexOf(movie) === newNum ? (
+                <img src={movie.poster}></img>
+              ) : (
+                <span></span>
+              );
             })}
           </div>
         </header>

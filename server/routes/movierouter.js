@@ -5,7 +5,7 @@ const router = express.Router();
 //get all the stored movies
 router.get('/', (req, res) => {
     pool
-        .query('SELECT * from "movies";')
+        .query('SELECT * from "movies" ORDER BY id;')
         .then((result) => {
             res.send(result.rows);
             console.log("res.send", result)
@@ -30,6 +30,31 @@ if (movie === undefined) {
   //....and uopdates it with put to flagged
   pool
     .query(queryText, [title, description, id])
+
+    .then(function (result) {
+      console.log("Update movie info for id of", id);
+      // it worked!
+      res.send(result.rows);
+    })
+    .catch(function (error) {
+      console.log("Sorry, there was an error with your query: ", error);
+      res.sendStatus(500); // HTTP SERVER ERROR
+    });
+});
+
+router.put("/refresh/:id", (req, res) => {
+  let id = req.params.id; // grabs id and places it in path
+  const movie = req.body; // pull the object out out of the HTTP REQUEST
+  const toggle = movie.toggle;
+  if (movie === undefined) {
+    // stop, dont touch the database
+    res.sendStatus(400); // 400 BAD REQUEST
+    return;
+  } //POST end
+  let queryText = `UPDATE movies SET toggle = $1 WHERE id = $2`;
+  //....and uopdates it with put to flagged
+  pool
+    .query(queryText, [toggle, id])
 
     .then(function (result) {
       console.log("Update movie info for id of", id);

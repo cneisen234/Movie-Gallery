@@ -16,10 +16,10 @@ class MovieItem extends Component {
   };
 
   toggle = () => {
-    this.setState({
-      toggle: !this.state.toggle,
-    });
-  };
+             this.setState({
+               toggle: !this.state.toggle,
+             });
+           };
 
   editMovie = (event) => {
     //prevents default action
@@ -89,7 +89,6 @@ class MovieItem extends Component {
       // <div className="App">
       //     We made it here!
       // </div>
-
       <div className="paperContainer">
         <Route exact path="/">
           <Paper
@@ -116,7 +115,7 @@ class MovieItem extends Component {
           </Paper>
         </Route>
         <Route exact path="/details">
-          {this.state.toggle === false ? (
+          {this.state.toggle !== true ? (
             <span></span>
           ) : (
             <div className="animate">
@@ -157,7 +156,7 @@ class MovieItem extends Component {
           )}
         </Route>
         <Route exact path="/edit">
-          {this.state.toggle === false ? (
+          {this.state.toggle !== true ? (
             <span></span>
           ) : (
             <div className="animate">
