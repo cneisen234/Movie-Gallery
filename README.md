@@ -42,19 +42,3 @@ This app was built using the following coding languages and libraries
 5. When you click "done editing" you will be prompted with a notice informing you that the changes are permanent and can't be undone. If you click "ok" your changes will be saved and you'll be brought back to the home page. If you click cancel you will be informed that your changes were canceled and you will be brought back to the homepage.
 
 ![step5](./public/images/step5.png)
-
-6. 4 through 5 will generate the response on the left, 1 through 3 will generate the response on the right. Here you can give feedback. Type your feedback in and click "submit feedback". This is not a required field.
-
-![step6](./public/images/step6.png)
-
-7. Once you click "submit feedback" a final "click to confirm" button will scroll up from the bottom and rest under the "submit feedback" button. Click "Click to Confirm" to submit your information.
-
-![step7](./public/images/step7.png)
-
-8. A pop up will appear. This is the summary page. You can review all of your submitted information and either click "ok" to confirm or "cancel" to cancel. Upon clicking okay you submit your information and be brought back to the start page again. Clicking cancel will also bring you back to the start page, but your information won't be saved.
-
-![step8](./public/images/step8.png)
-
-9. Finally there a secret admin page that can be accessed with the route "/admin". Type that into the address bar above and you'll see a table with all of the submitted survey information. Here you can see ther date the survey was submitted. You can flag any surveys for review. Flagging a survey for review will cause the flag icon to turn from white to black. This information is also sent to the database as a boolean value. You can also delete any surveys with the delete button.
-
-![step9](./public/images/step9.png)
