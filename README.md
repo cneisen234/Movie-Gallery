@@ -39,7 +39,7 @@ This app was built using the following coding languages and libraries
 
 ![step4](./public/images/step4.png)
 
-5. Same as before, clicking 4 through 5 will give the response on the left. Clicking 1 through 3 will generate the response on the right. On this page you are asked how supported you feel. Rate 1 through 5. This is a required field.
+5. When you click "done editing" you will be prompted with a notice informing you that the changes are permanent and can't be undone. If you click "ok" your changes will be saved and you'll be brought back to the home page. If you click cancel you will be informed that your changes were canceled and you will be brought back to the homepage.
 
 ![step5](./public/images/step5.png)
 
