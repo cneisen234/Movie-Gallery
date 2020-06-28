@@ -93,16 +93,21 @@ class MovieItem extends Component {
       <div className="paperContainer">
         <Route exact path="/">
           <Paper
-            style={{ borderRadius: "10%", height: "400px", width: "300px" }}
+            style={{ borderRadius: "10%", height: "450px", width: "300px" }}
             elevation="24"
-            className="movieBox"
+            className="movieBox hoverBox"
           >
             <span>
-              <img
-                onClick={this.navToDetails}
-                src={this.props.movie.poster}
-                alt={this.props.movie.title}
-              ></img>
+              <div className="photo">
+                <img
+                  onClick={this.navToDetails}
+                  src={this.props.movie.poster}
+                  alt={this.props.movie.title}
+                ></img>
+              </div>
+              <div className="info">
+                Click here to see more information on {this.props.movie.title}
+              </div>
             </span>
             <br />
             <div>
@@ -155,54 +160,56 @@ class MovieItem extends Component {
           {this.state.toggle === false ? (
             <span></span>
           ) : (
-               <div className="animate">
-            <Paper
-              style={{ borderRadius: "10%", height: "500px", width: "500px" }}
-              elevation="24"
-              className="movieBox"
-            >
-              <p>Please edit the title and description below</p>
-              <form onSubmit={this.editMovie}>
-                <TextField
-                  variant="outlined"
-                  label="Title"
-                  name="edit"
-                  placeholder="Edit Movie Title"
-                  // value of local state as text value
-                  value={this.state.title}
-                  type="text"
-                  maxLength={1000}
-                  //runs handleChange on input change
-                  onChange={(event) => this.handleChange(event, "title")}
-                />
-                <TextField
-                  multiline
-                  rows={4}
-                  rowsMax={8}
-                  variant="outlined"
-                  label="Description"
-                  name="edit"
-                  placeholder="Edit Movie Description"
-                  // value of local state as text value
-                  value={this.state.description}
-                  type="text"
-                  maxLength={10000}
-                  //runs handleChange on input change
-                  onChange={(event) => this.handleChange(event, "description")}
-                />
-                <br /> <br /> <br />
-                <br />
-                {/* button to submit comments */}
-                <Button
-                  className="button"
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                >
-                  Done Editing
-                </Button>{" "}
-              </form>
-            </Paper>
+            <div className="animate">
+              <Paper
+                style={{ borderRadius: "10%", height: "500px", width: "500px" }}
+                elevation="24"
+                className="movieBox"
+              >
+                <p>Please edit the title and description below</p>
+                <form onSubmit={this.editMovie}>
+                  <TextField
+                    variant="outlined"
+                    label="Title"
+                    name="edit"
+                    placeholder="Edit Movie Title"
+                    // value of local state as text value
+                    value={this.state.title}
+                    type="text"
+                    maxLength={1000}
+                    //runs handleChange on input change
+                    onChange={(event) => this.handleChange(event, "title")}
+                  />
+                  <TextField
+                    multiline
+                    rows={4}
+                    rowsMax={8}
+                    variant="outlined"
+                    label="Description"
+                    name="edit"
+                    placeholder="Edit Movie Description"
+                    // value of local state as text value
+                    value={this.state.description}
+                    type="text"
+                    maxLength={10000}
+                    //runs handleChange on input change
+                    onChange={(event) =>
+                      this.handleChange(event, "description")
+                    }
+                  />
+                  <br /> <br /> <br />
+                  <br />
+                  {/* button to submit comments */}
+                  <Button
+                    className="button"
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                  >
+                    Done Editing
+                  </Button>{" "}
+                </form>
+              </Paper>
             </div>
           )}
         </Route>
