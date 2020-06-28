@@ -125,7 +125,7 @@ class MovieItem extends Component {
                 className="descriptionImage"
               ></img>
               <Paper
-                style={{ borderRadius: "10%", height: "700px", width: "600px" }}
+                style={{ borderRadius: "10%", height: "800px", width: "600px" }}
                 elevation="24"
                 className="movieBox"
               >
