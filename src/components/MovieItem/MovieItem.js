@@ -134,6 +134,14 @@ class MovieItem extends Component {
                   <div className="textBox">
                     <p>{this.props.movie.description}</p>
                   </div>
+                  
+                  <ul className="genre">
+                      <li className="genres">Genre</li>
+                      {this.props.movie.genres.map((genre) => {
+                        return <li>{genre}</li>;
+                      })}
+                  </ul>
+                  <br /><br /><br />
                   <Button
                     variant="contained"
                     color="primary"

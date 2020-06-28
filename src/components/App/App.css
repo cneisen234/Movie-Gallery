@@ -1,6 +1,17 @@
 .info {
   display: none;
 }
+.genres {
+  float: left;
+  width: 140px;
+  font-size: 30px;
+  list-style: none;
+  text-decoration: underline;
+}
+.genre {
+  float: left;
+   list-style: none;
+}
 
 .photo:hover + .info {
       display: block;

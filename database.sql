@@ -8,9 +8,14 @@ CREATE TABLE "movies" (
 -- movies can have multiple genres
 CREATE TABLE "genres" (
   "id" SERIAL PRIMARY KEY,
-  "name" VARCHAR(80) NOT NULL
+  "genre_name" VARCHAR(80) NOT NULL
 );
 
+select movies.title, array_agg(genre_name) as genres, array_agg(distinct movies.id) as id, array_agg(distinct movies.poster) as poster, array_agg(distinct movies.description) as description
+from movies
+  JOIN "junction" on "junction"."movie_id" = "movies"."id"
+  JOIN "genres" on "junction"."genre_id" = "genres"."id"
+group by "title";
 
 -- CREATE JUNCTION TABLE
 -- You will need to create the junction table that stores the relationships between "movies" and "genres"
