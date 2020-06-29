@@ -61,7 +61,7 @@ class MovieItem extends Component {
         swal("Your request to edit has been canceled!");
       }
             setTimeout(() => {
-              this.navToHome();
+              this.navToDetails2();
             }, 2000);
       //runs navToHome function after a 2 second period
     });
@@ -84,6 +84,11 @@ class MovieItem extends Component {
   navToDetails = () => {
     //changes toggle value in local state
     this.toggle();
+    //goes to details page
+    this.props.history.push("/details");
+  };
+
+  navToDetails2 = () => {
     //goes to details page
     this.props.history.push("/details");
   };
@@ -266,9 +271,9 @@ class MovieItem extends Component {
                     variant="contained"
                     color="primary"
                     className="button"
-                    onClick={this.navToHome}
+                    onClick={this.navToDetails2}
                   >
-                    Back To List
+                    Back To Description
                   </Button>
               </Paper>
             </div>
