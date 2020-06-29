@@ -91,6 +91,9 @@ class MovieItem extends Component {
   navToDetails2 = () => {
     //goes to details page
     this.props.history.push("/details");
+    this.forceUpdate();
+    this.props.dispatch({ type: "FETCH_MOVIES" });
+    this.setState({ toggle: true });
   };
 //sets localstate to the value of the input value
   handleChange = (event, fieldName) => {
